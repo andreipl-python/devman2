@@ -16,7 +16,7 @@ class BitlyAPI:
         }
         self.url = 'https://api-ssl.bitly.com/v4/'
 
-    async def __get(self, method: str, params: dict = None) -> dict:
+    async def __get(self, method: str, params: Optional[dict] = None) -> dict:
         method_url = f'{self.url}{method}'
         async with aiohttp.ClientSession() as session:
             async with session.get(url=method_url, headers=self.headers, params=params) as response:
