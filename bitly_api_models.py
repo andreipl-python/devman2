@@ -41,12 +41,13 @@ class BitlyAPI:
         bitlink: ParseResult = urlparse(long_bitlink)
         method = f'bitlinks/{bitlink.netloc}{bitlink.path}/clicks/summary'
         result = await self.__get(method=method)
-        return result.get('total_clicks', result.get('error_message'))
+        return f'По вашей ссылке прошли: {result.get("total_clicks")} раз(а)' if result.get('total_clicks') \
+            else result.get('error_message')
 
     async def make_short_link(self, long_url: str) -> str:
         data = {'long_url': long_url}
         result = await self.__post(method='shorten', data=data)
-        return result.get('link', result.get('error_message'))
+        return f'Битлинк: {result.get("link")}' if result.get('link') else result.get('error_message')
 
     async def is_bitlink_exist(self, long_bitlink: str) -> bool:
         bitlink: ParseResult = urlparse(long_bitlink)
