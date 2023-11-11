@@ -1,7 +1,5 @@
 from urllib.parse import ParseResult, urlparse
 
-from aiohttp import ContentTypeError
-
 from config_reader import config
 from typing import Optional
 
