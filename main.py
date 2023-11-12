@@ -4,6 +4,7 @@ from urllib.parse import ParseResult, urlparse
 
 from dotenv import load_dotenv
 
+
 def is_bitlink_exist(long_bitlink: str) -> bool:
     bitlink: ParseResult = urlparse(long_bitlink)
     url = f'{API_URL}bitlinks/{bitlink.netloc}{bitlink.path}'
