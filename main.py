@@ -4,13 +4,6 @@ from urllib.parse import ParseResult, urlparse
 
 from dotenv import load_dotenv
 
-load_dotenv('config.env')
-
-ACCESS_TOKEN = os.environ.get('BITLY_ACCESS_TOKEN')
-HEADERS = {"Authorization": "Bearer " + ACCESS_TOKEN}
-API_URL = 'https://api-ssl.bitly.com/v4/'
-
-
 def is_bitlink_exist(long_bitlink: str) -> bool:
     bitlink: ParseResult = urlparse(long_bitlink)
     url = f'{API_URL}bitlinks/{bitlink.netloc}{bitlink.path}'
@@ -49,4 +42,8 @@ def main():
 
 
 if __name__ == '__main__':
+    load_dotenv('config.env')
+    ACCESS_TOKEN = os.environ.get('BITLY_ACCESS_TOKEN')
+    HEADERS = {"Authorization": "Bearer " + ACCESS_TOKEN}
+    API_URL = 'https://api-ssl.bitly.com/v4/'
     main()
