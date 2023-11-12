@@ -12,8 +12,8 @@ Before running the project, you need to obtain an access token from Bitly. Follo
 1. Visit the Bitly Developer Documentation on [Authentication](https://dev.bitly.com/docs/getting-started/authentication/).
 2. Generate your access token by following the instructions provided in the documentation.
 3. Once you have obtained the access token, create a file named ```config.env``` in the root directory of the project.
-4. Inside ```config.env```, add the following line: ```BITLY_ACCESS_TOKEN=<your-access-token>```, 
-replacing <your-access-token> with the actual access token you obtained.
+4. Inside ```config.env```, add the following line: ```BITLY_ACCESS_TOKEN='your-access-token'```, 
+replacing `````your-access-token````` with the actual access token you obtained.
 
 ## Dependencies
 
